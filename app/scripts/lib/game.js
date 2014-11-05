@@ -24,8 +24,11 @@ var Game = Game || {};
 			var _self = this;
 
 		},
+		hideItem: function() {
+
+		},
 		selectItem: function() {
-			
+			var _self = this;
 		}
     }
 })
