@@ -7,7 +7,8 @@
 }
 
 body {
-  background: url("/images/memory.jpg") no-repeat;
+  background: url("/images/memory.jpg") no-repeat fixed top;
+  background-size: cover;
 }
 
 .text-game {
@@ -16,3 +17,15 @@ body {
   text-align: center;
 }
 
+.tile {
+  display: inline-block;
+  border: 3px solid black;
+  margin-right: 3px;
+  opacity: 0.7;
+  background-color: gray;
+  width: 116px;
+  height: 116px;
+  img{
+    display: none;
+  }
+}

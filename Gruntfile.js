@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       },
       js: {
         files: ['<%= config.app %>/scripts/{,*/}*.js'],
-        tasks: ['jshint'],
+        tasks: ['concat'],
         options: {
           livereload: true
         }
@@ -316,7 +316,11 @@ module.exports = function (grunt) {
         separator: ';',
       },
       dist: {
-        src: ['<%= config.app %>/scripts/lib/item.js', '<%= config.app %>/scripts/lib/game.js', '<%= config.app %>/scripts/main.js'],
+        src: '<%= config.app %>/scripts/{,*/}*.js',
+        dest: '<%= config.dist %>/scripts/built.js',
+      },
+      serve: {
+        src: '<%= config.app %>/scripts/{,*/}*.js',
         dest: '.tmp/scripts/built.js',
       },
     },
