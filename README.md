@@ -1,4 +1,6 @@
-To install the appp you have to install nodejs and npm.
+Trying to set up a memory game. This is currently work in progress ! :)
+
+To install the app you have to install nodejs and npm.
 
 Then,
 
