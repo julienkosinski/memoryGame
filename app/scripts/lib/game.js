@@ -25,16 +25,17 @@ var gameSession = gameSession || {};
 		init: function() {
 			var _self = this;
 			if(!_self.buttonClicked) {
-				console.log(_self.buttonClicked);
 				_self.selectedTile = _self.selectTile();
 				for (var i=0; i<=_self.options.nbTile; i++) {
 					_self.createTile(i);
 				}
+				//It does not pass here, why ?
 				_self.buttonClicked = true;
 				console.log(_self.buttonClicked);	
 				
 			}
 			else {
+				//Will be implemented later
 				//_self.resetGame();
 			}
 		},
@@ -66,10 +67,11 @@ var gameSession = gameSession || {};
 			return selectedImgsNbId;
 		},
 		testMatchedPair: function(){
-			if (nbTileDisplayed == 2) {
+			//Will be implemented later
+			/*if (nbTileDisplayed == 2) {
 
 			};
-			return matched;
+			return matched;*/
 		},
 		resetGame: function(){
 
