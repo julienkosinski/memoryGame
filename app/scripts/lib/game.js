@@ -8,7 +8,7 @@ var gameSession = gameSession || {};
 			nbTile: 6,
 			tile: [],
 			inGameId: '#in-game',
-			tileId: '#tiles',
+			tileId: 'tile',
 		}
 		this.options = options || defaultOptions;
 		return this;
@@ -41,13 +41,13 @@ var gameSession = gameSession || {};
 		},
 		createTile: function(nbId) {
 			var _self = this;
-			$(_self.options.inGameId).append("<div class=\"tile\" id=\""+_self.options.tileId+nbId+"\"><img src=\""+tileData[_self.selectedTile[nbId]].src+"\" alt=\""+tileData[_self.selectedTile[nbId]].name+"\" height=\"116\" width=\"116\"></div>");
+			$(_self.options.inGameId).append("<div class=\""+_self.options.tileId+"\" id=\""+_self.options.tileId+nbId+"\"><img src=\""+tileData[_self.selectedTile[nbId]].src+"\" alt=\""+tileData[_self.selectedTile[nbId]].name+"\" height=\"116\" width=\"116\"></div>");
 		},
 		unhideTile: function(id) {
-			var _self = this;
+			/*var _self = this;
 			var testMatchedPair = _self.testMatchedPair();
 
-			$(id).show('fast');
+			$(id).show('fast');*/
 		},
 		selectTile: function() {
 			var _self = this;
