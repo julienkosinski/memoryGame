@@ -21,6 +21,8 @@ var gameSession = gameSession || {};
 		nbTileDisplayed: 0,
 		clickedTilesId: [],
 		selectedTile: [],
+		activeElements: [],
+		tilesFound: 0,
 
 		init: function() {
 			var _self = this;
@@ -44,16 +46,7 @@ var gameSession = gameSession || {};
 			$(_self.options.inGameId).append("<div class=\""+_self.options.tileId+"\"><img id=\""+_self.options.tileId+nbId+"\" src=\""+tileData[_self.selectedTile[nbId]].src+"\" alt=\""+tileData[_self.selectedTile[nbId]].name+"\" height=\"116\" width=\"116\"></div>");
 		},
 		toggleDisplay: function() {
-			var _self = this;
 
-			$(document).on('click', '.tile', function(e){
-				if( !e ) e = window.event;
-				e = e || window.event;
-				var targetedImg = e.srcElement || e.target;
-				$("#"+targetedImg.id).fadeTo("slow", $("#"+targetedImg.id).css("opacity") == "1" ? "0" : "1");
-				_self.counterClick++;
-				_self.nbTileDisplayed++;
-			});
 		},
 		selectTile: function() {
 			var _self = this;
