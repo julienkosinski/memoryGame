@@ -44,43 +44,39 @@ var gameSession = gameSession || {};
 			$(_self.options.inGameId).append("<div class=\""+_self.options.tileId+"\"><img id=\""+_self.options.tileId+nbId+"\" src=\""+tileData[_self.selectedTile[nbId]].src+"\" alt=\""+tileData[_self.selectedTile[nbId]].name+"\" height=\"116\" width=\"116\"></div>");
 		},
 		toggleDisplay: function() {
+			var _self = this;
 			$(document).on('click', '.tile', function(e){
 				if( !e ) e = window.event;
 				e = e || window.event;
 				var targetedImg = e.srcElement || e.target;
+				console.log(_self.activeElements);
 				//I've chosen to manage an object of active items instead of adding active class in the HTML. That's maybe a bit stupid but it came out of my mind like that for now. If I can't debug it, I'll switch to the other method.
-				if(myGame.activeElements.length < 2) {
-					myGame.activeElements.push({
+				if(_self.activeElements.length < 2) {
+					_self.activeElements.push({
 						id: targetedImg.id,
 						src: targetedImg.src
 					});
 					//Can't find working expression without condition statment...
-					$("#"+targetedImg.id).fadeTo("slow", $("#"+targetedImg.id).css("opacity") == "0" ? "1" : "1");
+					$("#"+targetedImg.id).fadeTo("slow", 1);
 				}
 				//Does not work for the time being but here is my try...
 				else {
-					if(_.each(myGame.activeElements, function (val, i) {
-
-					console.log("i : "+i);
-					console.log("myGame.activeElements[i].src : "+myGame.activeElements[i].src);
-						val.src == myGame.activeElements[i].src;}))
+					if(_self.activeElements[0].src == _self.activeElements[1].src)
 					{
-						console.log("blo");
-						myGame.tilesFound+=2;
-						if (myGame.tilesFound == nbTile) {
+						_self.tilesFound+=2;
+						_self.activeElements = [];
+						if (_self.tilesFound == _self.nbTile) {
 							alert("You win");
-							myGame.resetGame();
+							_self.resetGame();
 						}
 					}
 					else {
-						_.each(myGame.activeElements, function () {
-							console.log("bla");
-							$("#"+myGame.activeElements.id[0], "#"+myGame.activeElements.id[1]).fadeTo("slow", $("#"+myGame.activeElements.id[0], "#"+myGame.activeElements.id[1]).css("opacity") == "1" ? "0" : "0");
-							myGame.activeElements = [];
-						})
+						console.log("bla");
+						$("#"+_self.activeElements[0].id, "#"+_self.activeElements[1].id).fadeTo("slow", 1);
+						_self.activeElements = [];
 					}
 				}
-				myGame.counterClick++;
+				_self.counterClick++;
 			});
 		},
 		selectTile: function() {
